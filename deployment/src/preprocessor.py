@@ -6,7 +6,7 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder, LabelBinarizer, R
 
 
 def _cabin_floor(df):
-    res = df["cabin"].str[0].fillna("X")
+    res = df["cabin"].fillna("X").str[0]
     res = res.replace({"A": 9, "B": 7, "C": 6, "D": 5, 
                        "E": 4, "F": 3, "G": 2, "T": 1, "X": 0})
     return np.log(res + 1)
