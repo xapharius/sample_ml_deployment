@@ -6,4 +6,3 @@ EXPOSE 5000
 
 WORKDIR /app
 ENTRYPOINT ["python", "/app/app.py"]
-
