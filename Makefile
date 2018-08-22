@@ -4,7 +4,7 @@ PROD_FOLDER := ./deployment
 # assumes conda enabled via new conda.sh when calling make
 CONDA_PATH := $(CONDA_PREFIX)
 
-.PHONY: prod_venv_install prod_venv_export dev_venv_instal dev_venv_export
+.PHONY: prod_venv_install prod_venv_export dev_venv_instal dev_venv_export download_data
 
 
 prod_venv_install:
@@ -23,4 +23,6 @@ dev_venv_export:
 	conda activate ./venv && \
 	conda list --explicit > ./dev_requirements.txt
 
+download_data:
+	curl --create-dirs -o ./data/titanic.csv https://raw.githubusercontent.com/pcsanwald/kaggle-titanic/master/train.csv 
 
